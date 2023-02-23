@@ -1,23 +1,26 @@
+import numexpr
 from flask import *
-from math import sqrt
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def hello_world():
-    print("god")
     return render_template('index.html')
 
 
 @app.route('/calcular', methods=['POST'])
 def calcular():
+
     request_data = request.get_json()
+    try:
+        valor = request_data['calculo']
 
-    valor = request_data['calculo']
+        valor = str(numexpr.evaluate(valor))
 
-    print(eval(valor))
-
-    valor = str(eval(valor))
+    except SyntaxError:
+        valor = "Syntax Error"
+    except TypeError:
+        valor = "Error"
 
     return valor
