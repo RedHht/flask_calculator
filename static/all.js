@@ -1,15 +1,27 @@
 
         let calculo = "";
+        let calculoVisual = "";
 
-        function agregarNumero(valor) {
+        function agregarNumero(valor, valorvisual = "") {
 
-            calculo = calculo + valor;
-            document.getElementById("resultado").innerHTML=calculo;
+            if (valorvisual == "") {
+
+                calculo = calculo + valor;
+                calculoVisual = calculoVisual + valor;
+                document.getElementById("resultado").innerHTML=calculoVisual;
+
+            } else {
+
+                calculo = calculo + valor;
+                calculoVisual = calculoVisual + valorvisual;
+                document.getElementById("resultado").innerHTML = calculoVisual;
+            }
         }
 
         function borrar() {
 
             calculo = "";
+            calculoVisual = "";
             document.getElementById("resultado").innerHTML="0";
 
         }
@@ -29,4 +41,5 @@
                   document.getElementById("resultado").textContent = result;
                 });
             calculo = "";
+            calculoVisual = "";
             }
