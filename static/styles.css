@@ -1,0 +1,69 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.calculadora {
+    background-color: #333;
+    color: white;
+    width: 300px;
+    margin: 50px auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para la pantalla */
+.pantalla {
+    background-color: #444;
+    padding: 10px;
+    font-size: 2em;
+    text-align: right;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: inset 0 -1px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Estilos para los botones */
+.botones button {
+    font-size: 1.5em;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    background-color: #eee;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos para los botones de operación */
+.botones button.operacion {
+    background-color: #ff9900;
+    color: white;
+}
+
+/* Estilos para el botón igual */
+.botones button.igual {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Estilos para el botón C */
+.botones button#boton {
+    background-color: #ff3300;
+    color: white;
+}
+
+/* Estilos para el botón C al pasar el mouse */
+.botones button#boton:hover {
+    background-color: #cc2900;
+}
+
+/* Estilos para el botón al pasar el mouse */
+.botones button:hover {
+    background-color: #ddd;
+}
