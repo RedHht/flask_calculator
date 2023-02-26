@@ -1,37 +1,29 @@
 class calculadora {
 
-    constructor() {
+    static calculo = "";
+    static calculoVisual = "";
 
-        self.self.calculo = "";
-        self.self.calculoVisual = "";
+    static agregarNumero(valor, valorvisual = "") {
 
-    }
-
-    agregarNumero(valor, valorvisual = "") {
-        if (valorvisual == "") {
-
-            self.calculo += valor;
-            self.calculoVisual += valor;
-            document.getElementById("resultado").innerHTML=self.calculoVisual;
-
-        } else {
-
-            self.calculo += valor;
-            self.calculoVisual += valorvisual;
-            document.getElementById("resultado").innerHTML = self.calculoVisual;
-        }
+            this.calculo += valor;
+            if (valorvisual === "") {
+                this.calculoVisual += valor;
+            } else {
+                this.calculoVisual += valorvisual;
+            }
+            document.getElementById("resultado").innerHTML = this.calculoVisual;
 
     }
 
-    borrar() {
+    static borrar() {
 
-        self.calculo = "";
-        self.calculoVisual = "";
+        this.calculo = "";
+        this.calculoVisual = "";
         document.getElementById("resultado").innerHTML="0";
 
     }
 
-    calcular() {
+    static calcular() {
 
         fetch( window.location.origin +  "/calcular", {
             method: 'POST',
@@ -39,17 +31,17 @@ class calculadora {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ "calculo": self.calculo })
+            body: JSON.stringify({ "calculo": this.calculo })
         })
         .then(response => response.text())
         .then(result => {document.getElementById("resultado").textContent = result;
         });
 
-        self.calculo = "";
-        self.calculoVisual = "";
+        this.calculo = "";
+        this.calculoVisual = "";
 
     }
 
 }
 
-let calculadoraa = new calculadora;
+console.log(calculadora.calculoVisual, calculadora.calculo)

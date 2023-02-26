@@ -1,6 +1,6 @@
 import numexpr
 from numpy import pi
-from flask import *
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
@@ -15,10 +15,7 @@ def calcular():
 
     request_data = request.get_json()
     try:
-        valor = request_data['calculo']
-
-        valor = str(numexpr.evaluate(valor))
-
+        valor = str(numexpr.evaluate(request_data['calculo']))
     except SyntaxError:
         valor = "Syntax Error"
     except TypeError:
